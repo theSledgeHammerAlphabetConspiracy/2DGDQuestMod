@@ -7,7 +7,7 @@ export var player_team: String = "1"
 var look_direction = Vector2(1, 0) setget set_look_direction
 
 var knockback_direction := Vector2()
-var knockback_amount : float = 0.0
+export var knockback_amount : float = 0.0
 
 var string_series: int = 0
 
@@ -15,7 +15,7 @@ func _ready():
 	add_to_group("player"+player_team)
 	#print(get_tree().get_nodes_in_group('player1'))
 
-func take_damage(attacker, amount, kb_D, kb_A= 200, effect=null):
+func take_damage(attacker, amount, kb_D, kb_A= 1200, effect=null):
 	#print("take damage in player controller is ran")
 	
 	#if self.is_a_parent_of(attacker):#this was the original

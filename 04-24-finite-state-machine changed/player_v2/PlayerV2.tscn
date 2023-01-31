@@ -291,6 +291,18 @@ tracks/20/keys = {
 "update": 0,
 "values": [ 0 ]
 }
+tracks/21/type = "value"
+tracks/21/path = NodePath(".:knockback_amount")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "hitstop"
@@ -471,6 +483,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -5, -28 ), Vector2( 5, -28 ), Vector2( -5, -28 ), Vector2( 5, -28 ), Vector2( -5, -28 ), Vector2( 5, -28 ), Vector2( 0, -28 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:knockback_amount")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.55 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -654,12 +678,24 @@ tracks/3/path = NodePath("StateMachine/Knockdown:get_up_roll_speed")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 225, 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:knockback_amount")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=53]

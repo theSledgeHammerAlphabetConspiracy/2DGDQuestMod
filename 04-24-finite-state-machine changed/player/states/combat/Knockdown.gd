@@ -15,11 +15,14 @@ func handle_input(event):
 #	return .handle_input(event)
 
 func update(_delta):
+	print(owner.knockback_amount)
+	
 	#this will work if you want lots of teching
 	#var input_direction = get_input_direction()
 	#if input_direction:
 		#("finished", "move")
-	var collision_info = move(get_up_roll_speed, input_direction)
+	##var collision_info = move(get_up_roll_speed, input_direction)
+	var collision_info = move(owner.knockback_amount, input_direction)
 	if not collision_info:
 		return
 	#if speed == MAX_RUN_SPEED and collision_info.collider.is_in_group("environment"):

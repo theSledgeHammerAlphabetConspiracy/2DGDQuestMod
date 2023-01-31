@@ -33,8 +33,11 @@ func update(delta):
 
 func move(speed, direction):
 	velocity = direction.normalized() * speed
-	owner.knockback_amount = owner.knockback_amount *.95# -= 10# owner.knockback_amount *.1
-	#clamp? if subtracting
+	#print(owner.knockback_amount)
+	#trying this in the animation player in the capture type
+	#owner.knockback_amount = owner.knockback_amount *.95# -= 10# owner.knockback_amount *.1
+	#clamp?
+	
 	owner.move_and_slide(velocity, Vector2(), 5, 2)
 	if owner.get_slide_count() == 0:
 		return
