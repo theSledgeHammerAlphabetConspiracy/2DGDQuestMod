@@ -7,7 +7,7 @@ onready var input_direction = get_input_direction()
 func enter():
 	owner.get_node("AnimationPlayer").play("knockdown")
 	input_direction = get_input_direction()
-	input_direction = Vector2(owner.knockback_direction.x,input_direction.y)
+	input_direction += Vector2(owner.knockback_direction.x,input_direction.y)
 	#input_direction = Vector2(-owner.get_node("BodyPivot").get_scale().x,input_direction.y)
 	#input_direction -=  Vector2(owner.get_node("BodyPivot").get_scale().x,0)
 func handle_input(event):

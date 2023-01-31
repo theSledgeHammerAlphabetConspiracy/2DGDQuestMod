@@ -75,3 +75,6 @@ func animate_jump_height(delta):
 	height = max(0.0, height)
 
 	owner.get_node("BodyPivot").position.y = -height
+	
+func exit():
+	height = 0.0
