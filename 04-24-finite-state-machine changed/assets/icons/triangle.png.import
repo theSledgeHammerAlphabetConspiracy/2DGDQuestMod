@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/avspmajdschaefer.png-3223ebbc925c32ceb04f16abdd0e91a8.stex"
+path="res://.import/triangle.png-ebe29539d21fbe4f4fd4a4c19335d80c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/avspmajdschaefer.png"
-dest_files=[ "res://.import/avspmajdschaefer.png-3223ebbc925c32ceb04f16abdd0e91a8.stex" ]
+source_file="res://assets/icons/triangle.png"
+dest_files=[ "res://.import/triangle.png-ebe29539d21fbe4f4fd4a4c19335d80c.stex" ]
 
 [params]
 

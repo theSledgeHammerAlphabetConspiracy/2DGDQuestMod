@@ -5,8 +5,13 @@ func handle_input(event):
 	#this whole thing needs to be moved to the collision system
 	if event.is_action_pressed("simulate_damage"+owner.player_team):
 		#change the hitstop stun_type here
-		emit_signal("finished", "hitstop")
-
+		#this is suppose to be in the get hit state and set in the VBox
+		owner.take_damage(self, 10,Vector2(-owner.get_node("BodyPivot").get_scale().x,0))
+		
+		#remove this if no issues after a bit
+		#owner.knockback_direction = Vector2(-owner.get_node("BodyPivot").get_scale().x,0)
+		#emit_signal("finished", "hitstop")
+#
 func get_input_direction():
 	var input_direction = Vector2()
 	input_direction.x = int(Input.is_action_pressed("move_right"+owner.player_team)) - int(Input.is_action_pressed("move_left"+owner.player_team))

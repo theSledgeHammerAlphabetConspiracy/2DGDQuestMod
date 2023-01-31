@@ -29,6 +29,8 @@ func take_damage(attacker, amount, kb_D, kb_A= 200, effect=null):
 	#$States/Hitstop.knockback_direction = (attacker.global_position - global_position).normalized()#this might be nice for DI
 	
 	$Health.take_damage(amount, effect)
+	
+	$StateMachine._change_state("hitstop")
 
 func set_dead(value):
 	set_process_input(not value)

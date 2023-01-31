@@ -22,21 +22,22 @@ func enter():
 	
 	##############this is all on the take daamge function on the player script
 	#if ABOX stuntype == 0 or w/e
-	stun_type = get_parent().states_stack[1].physics_type#this is if the ABox doesnt have an overriding
-	#hitstun type like launcher or grab
 	
-	#really weird place to put this
-	owner.take_damage(self, 10,Vector2(-1,0))#self here is just for the action it will probably be passed form the ABox
+	stun_type = get_parent().states_stack[1].physics_type#this is if the ABox doesnt have an overriding
+	#hitstun type like launcher or grab probably should be in the owner.take_damage function too
+	
+	#really weird place to put this moved to the owner.take_damage
+	#owner.take_damage(self, 10,Vector2(-1,0))#self here is just for the action it will probably be passed form the ABox
+	
 	owner.get_node("AnimationPlayer").play("hitstop")
 
 func _on_animation_finished(anim_name):
+	#emit_signal("finished", "hitstunA")
 	if stun_type == 0:
 		emit_signal("finished", "hitstunGr")
 	elif stun_type == 1:
 		get_parent().get_node('HitstunA').initialize(owner.knockback_amount, owner.knockback_direction, owner.get_node("BodyPivot").position.y)
 		emit_signal("finished", "hitstunA")
-	#else:#get rid of this
-		#emit_signal("finished", "previous")
 
 func exit():
 	pass

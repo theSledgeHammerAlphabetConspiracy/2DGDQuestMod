@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spidey walk.png-bc99f77138c5cccc44889c7e921f2fea.stex"
+path="res://.import/square.png-edb163cc38b6cd799158cbc68a09b67f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spidey walk.png"
-dest_files=[ "res://.import/spidey walk.png-bc99f77138c5cccc44889c7e921f2fea.stex" ]
+source_file="res://assets/icons/square.png"
+dest_files=[ "res://.import/square.png-edb163cc38b6cd799158cbc68a09b67f.stex" ]
 
 [params]
 

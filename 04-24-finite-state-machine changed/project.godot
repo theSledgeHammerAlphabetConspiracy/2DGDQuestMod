@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="GDQUEST modified"
+config/name="GDQUEST modified in github folder"
 run/main_scene="res://Demo.tscn"
 config/icon="res://icon.png"
 

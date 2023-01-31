@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spidey punch.png-5f42f69e7042fbd3885a48d23cc31df3.stex"
+path="res://.import/circle2.png-105468fb0ee5774fa66741152a227ab4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spidey punch.png"
-dest_files=[ "res://.import/spidey punch.png-5f42f69e7042fbd3885a48d23cc31df3.stex" ]
+source_file="res://assets/icons/circle2.png"
+dest_files=[ "res://.import/circle2.png-105468fb0ee5774fa66741152a227ab4.stex" ]
 
 [params]
 

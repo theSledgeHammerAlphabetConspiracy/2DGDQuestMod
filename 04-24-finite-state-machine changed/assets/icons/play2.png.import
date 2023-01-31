@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpiderMan.png-4d12da729a1ecde2c8c822a8c6461ecd.stex"
+path="res://.import/play2.png-d76cd697ef5d38c345333594ca38c52c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/SpiderMan.png"
-dest_files=[ "res://.import/SpiderMan.png-4d12da729a1ecde2c8c822a8c6461ecd.stex" ]
+source_file="res://assets/icons/play2.png"
+dest_files=[ "res://.import/play2.png-d76cd697ef5d38c345333594ca38c52c.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/6.png-42cfcbe79079bd99b66c2bc85aa54b2e.stex"
+path="res://.import/arrowR.png-75f7f00ce4f08cf5594d8c2d3a6a9e63.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spidey/6.png"
-dest_files=[ "res://.import/6.png-42cfcbe79079bd99b66c2bc85aa54b2e.stex" ]
+source_file="res://assets/icons/arrowR.png"
+dest_files=[ "res://.import/arrowR.png-75f7f00ce4f08cf5594d8c2d3a6a9e63.stex" ]
 
 [params]
 

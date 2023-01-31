@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/3.png-b805d07436eb2a5c104f59f9a14d5f67.stex"
+path="res://.import/x2.png-0db94d05ab321e8a3f860f96d70e001a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spidey/3.png"
-dest_files=[ "res://.import/3.png-b805d07436eb2a5c104f59f9a14d5f67.stex" ]
+source_file="res://assets/icons/x2.png"
+dest_files=[ "res://.import/x2.png-0db94d05ab321e8a3f860f96d70e001a.stex" ]
 
 [params]
 

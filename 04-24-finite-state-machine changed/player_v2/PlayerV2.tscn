@@ -184,7 +184,7 @@ tracks/11/keys = {
 "values": [ false ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("StateMachine/String3:chargeable")
+tracks/12/path = NodePath("StateMachine/String3:advance")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -193,10 +193,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("StateMachine/String3:advance")
+tracks/13/path = NodePath("StateMachine/String3:locked_speed")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -205,10 +205,10 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ 400.0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("StateMachine/String3:locked_speed")
+tracks/14/path = NodePath("StateMachine/String2:stringadd")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -217,10 +217,10 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 400.0 ]
+"values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("StateMachine/String2:stringadd")
+tracks/15/path = NodePath("StateMachine/Special:chargeable")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -232,7 +232,7 @@ tracks/15/keys = {
 "values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("StateMachine/Special:chargeable")
+tracks/16/path = NodePath("StateMachine/Special:locked_speed")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -241,10 +241,10 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ 0.0 ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("StateMachine/Special:locked_speed")
+tracks/17/path = NodePath("StateMachine/Special:advance")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -253,10 +253,10 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ true ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("StateMachine/Special:advance")
+tracks/18/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -268,7 +268,7 @@ tracks/18/keys = {
 "values": [ true ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
+tracks/19/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -277,10 +277,10 @@ tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ Vector2( 25, 25 ) ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
+tracks/20/path = NodePath("StateMachine/Knockdown:get_up_roll_speed")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -289,7 +289,7 @@ tracks/20/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 25, 25 ) ]
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -343,6 +343,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BodyPivot/AnimatedSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5, -28 ), Vector2( -15, -28 ), Vector2( 10, -28 ), Vector2( -10, -28 ), Vector2( 5, -28 ), Vector2( -5, -28 ), Vector2( -5, -28 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -637,6 +649,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 7, 6, 5, 4, 3, 2, 1, 0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("StateMachine/Knockdown:get_up_roll_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 225, 0 ]
+}
 
 [sub_resource type="Animation" id=53]
 resource_name = "lowkick"
@@ -752,7 +776,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0.017, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -1468,7 +1492,6 @@ script = ExtResource( 33 )
 script = ExtResource( 34 )
 chargeable = true
 stringadd = false
-advance = true
 locked_speed = 400.0
 
 [node name="Jump" type="Node" parent="StateMachine"]
@@ -1529,6 +1552,7 @@ texture = ExtResource( 9 )
 
 [node name="Body" type="Sprite" parent="BodyPivot"]
 visible = false
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -58.8242 )
 texture = ExtResource( 10 )
 

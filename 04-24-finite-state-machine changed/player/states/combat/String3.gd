@@ -12,6 +12,7 @@ export var locked_speed:float=0.0
 var chargespeed:float=0.0
 
 func enter():
+	advance = false
 	#play move
 	speed = 0.0
 	velocity = Vector2()

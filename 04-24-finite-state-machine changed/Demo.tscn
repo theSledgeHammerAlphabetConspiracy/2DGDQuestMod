@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player_v2/PlayerV2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://debug/StatesStackDiplayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://debug/ControlsPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://debug/Explanations.tscn" type="PackedScene" id=4]
 [ext_resource path="res://stuff i added/punching bag.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 360 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 675, 20 )
 
 [node name="Demo" type="Node"]
 
@@ -20,3 +26,25 @@
 
 [node name="KinematicBody2D" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 815, 392 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="walls" type="StaticBody2D" parent="Camera2D"]
+
+[node name="west" type="CollisionShape2D" parent="Camera2D/walls"]
+position = Vector2( -20, 360 )
+shape = SubResource( 1 )
+
+[node name="east" type="CollisionShape2D" parent="Camera2D/walls"]
+position = Vector2( 1300, 360 )
+shape = SubResource( 1 )
+
+[node name="south" type="CollisionShape2D" parent="Camera2D/walls"]
+position = Vector2( 640, 740 )
+shape = SubResource( 2 )
+
+[node name="north" type="CollisionShape2D" parent="Camera2D/walls"]
+position = Vector2( 640, 150 )
+shape = SubResource( 2 )
