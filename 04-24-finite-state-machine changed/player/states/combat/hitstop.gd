@@ -23,7 +23,10 @@ func enter():
 	##############this is all on the take daamge function on the player script
 	#if ABOX stuntype == 0 or w/e
 	
-	stun_type = get_parent().states_stack[1].physics_type#this is if the ABox doesnt have an overriding
+	if owner.knockback_type == 0:
+		stun_type = get_parent().states_stack[1].physics_type#this is if the ABox doesnt have an overriding
+	elif owner.knockback_type == 6:#blowback
+		stun_type = 6
 	#hitstun type like launcher or grab probably should be in the owner.take_damage function too
 	
 	#really weird place to put this moved to the owner.take_damage
@@ -38,7 +41,8 @@ func _on_animation_finished(anim_name):
 	elif stun_type == 1:
 		get_parent().get_node('HitstunA').initialize(owner.knockback_amount, owner.knockback_direction, owner.get_node("BodyPivot").position.y)
 		emit_signal("finished", "hitstunA")
-
+	elif stun_type == 6:#this should become blowback
+		emit_signal("finished", "hitstunA")
 func exit():
 	pass
 	#print(owner.get_node("BodyPivot").position.y)

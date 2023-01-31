@@ -18,6 +18,11 @@ func enter():
 	velocity = Vector2()
 	owner.string_series = 0 #end of series
 	chargespeed = 0.0
+	
+	owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
+	owner.attack_KB_amount = 2000
+	owner.attack_KB_type = 6#blowback
+	
 	#this allows for the second attack in the string to attack behind the player.. this might be bad
 	#var input_direction = get_input_direction()
 	#update_look_direction(input_direction)
@@ -44,22 +49,32 @@ func update(delta):
 	#end of string
 #	if stringadd == true and Input.is_action_just_pressed("stringA"+owner.player_team):
 #		series += 1
+
+	var blowback_dir = get_input_direction()
+	match blowback_dir:
+		Vector2(0,1):
+			owner.attack_KB_dir = Vector2(0,1)
+		Vector2(0,-1):
+			owner.attack_KB_dir = Vector2(0,-1)
+		_:
+			owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
 		
-#	var input_direction = get_input_direction()
-#	if not input_direction:
-#		emit_signal("finished", "idle")
-#	update_look_direction(input_direction)#in motion
-#
-#	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
-#	var collision_info = move(speed, input_direction)
-#	if not collision_info:
-#		return
-#	if speed == MAX_RUN_SPEED and collision_info.collider.is_in_group("environment"):
-#		return null
+#	if blowback_dir.y == 1:
+#		owner.attack_KB_dir = Vector2(0,1)
+#	elif blowback_dir.y == -1:
+#		owner.attack_KB_dir = Vector2(0,-1)
+#	elif blowback_dir.x == owner.get_node("BodyPivot").get_scale().x:
+#		owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
+#	elif blowback_dir.x == 0:
+#		owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
+	##########not sure what to do if you press backwards cause i think you might switch directions
+		
+		
 
 	if advance == true:
-		#print(chargespeed)
-		locked_direction.y = get_input_direction().y
+		#below is in the special attack but not in the thrid hit of the the string so the up down input
+		#can be used for different blowbacks
+		#locked_direction.y = get_input_direction().y
 		var collision_info = move(locked_speed+chargespeed, locked_direction)
 		if not collision_info:
 			return

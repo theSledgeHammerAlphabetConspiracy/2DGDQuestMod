@@ -15,6 +15,11 @@ func enter():
 	#print("we're in string 2")
 	#play move
 	speed = 0.0
+	
+	owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
+	owner.attack_KB_amount = 200
+	owner.attack_KB_type = 0
+	
 	velocity = Vector2()
 	owner.string_series -= 1
 	#this allows for the second attack in the string to attack behind the player.. this might be bad

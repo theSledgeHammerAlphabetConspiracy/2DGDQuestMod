@@ -15,7 +15,7 @@ func handle_input(event):
 #	return .handle_input(event)
 
 func update(_delta):
-	print(owner.knockback_amount)
+	#print(owner.knockback_amount)
 	
 	#this will work if you want lots of teching
 	#var input_direction = get_input_direction()

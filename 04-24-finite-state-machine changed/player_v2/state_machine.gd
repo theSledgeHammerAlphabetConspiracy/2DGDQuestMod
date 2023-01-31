@@ -25,6 +25,7 @@ var _active = false setget set_active
 func _ready():
 	for child in get_children():
 		child.connect("finished", self, "_change_state")
+		#print(owner.get_name())
 	initialize(START_STATE)
 
 func initialize(start_state):
