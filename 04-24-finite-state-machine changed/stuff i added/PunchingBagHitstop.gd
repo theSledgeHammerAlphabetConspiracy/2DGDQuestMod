@@ -25,9 +25,9 @@ func _on_animation_finished(anim_name):
 		#print("in")
 		emit_signal("finished", "blowback")
 #####add this back in when the states are added in 1/31
-#	elif stun_type == 1:
-#		get_parent().get_node('HitstunA').initialize(owner.knockback_amount, owner.knockback_direction, owner.get_node("BodyPivot").position.y)
-#		emit_signal("finished", "hitstunA")
+	elif stun_type == 1:
+		get_parent().get_node('HitstunA').initialize(owner.knockback_amount, owner.knockback_direction, owner.get_node("BodyPivot").position.y)
+		emit_signal("finished", "hitstunA")
 
 func exit():
 	stun_type = 0

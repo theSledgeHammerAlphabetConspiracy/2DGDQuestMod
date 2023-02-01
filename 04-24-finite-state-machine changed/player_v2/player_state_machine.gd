@@ -2,16 +2,20 @@ extends "res://player_v2/state_machine.gd"
 
 func _ready():
 	states_map = {
+		"attack": $Attack,#old not used 2/1
 		"idle": $Idle,
 		"move": $Move,
 		"jump": $Jump,
 		"jumpstart":$JumpStart,
 		"jumpland":$JumpLand,
+		
 		"hitstop": $Hitstop,#old stagger
-		"attack": $Attack,
 		"hitstunGr":$HitstunGr,
 		"hitstunA":$HitstunA,
 		"knockdown":$Knockdown,
+		"blowback":$Blowback,
+		"wallbounce":$WallBounce,
+		
 		"string1":$String1,
 		"string2":$String2,
 		"string3":$String3,

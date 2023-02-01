@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://stuff i added/PunchingBagHitstunGr.gd" type="Script" id=1]
 [ext_resource path="res://stuff i added/PunchingBagStateMachine.gd" type="Script" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://stuff i added/punching bag.gd" type="Script" id=5]
 [ext_resource path="res://player/states/debug/state-name-displayer.gd" type="Script" id=6]
 [ext_resource path="res://stuff i added/PunchingBagBlowback.gd" type="Script" id=7]
-[ext_resource path="res://stuff i added/Wallbounce.gd" type="Script" id=8]
+[ext_resource path="res://stuff i added/PunchingBagWallbounce.gd" type="Script" id=8]
 [ext_resource path="res://player/shadow.png" type="Texture" id=9]
+[ext_resource path="res://stuff i added/PunchingBagHitstunA.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 6 )
@@ -106,6 +107,9 @@ tracks/0/keys = {
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "hitstunA"
+
 [sub_resource type="Animation" id=6]
 resource_name = "hitstunGr"
 tracks/0/type = "value"
@@ -127,6 +131,7 @@ resource_name = "idle"
 [sub_resource type="Animation" id=10]
 resource_name = "wallbounce"
 length = 1.5
+step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:knockback_amount")
 tracks/0/interp = 1
@@ -202,6 +207,9 @@ script = ExtResource( 4 )
 [node name="HitstunGr" type="Node" parent="StateMachine"]
 script = ExtResource( 1 )
 
+[node name="HitstunA" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
+
 [node name="Blowback" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 
@@ -212,6 +220,7 @@ script = ExtResource( 8 )
 anims/RESET = SubResource( 8 )
 anims/blowback = SubResource( 9 )
 anims/hitstop = SubResource( 5 )
+anims/hitstunA = SubResource( 11 )
 anims/hitstunGr = SubResource( 6 )
 anims/idle = SubResource( 7 )
 anims/wallbounce = SubResource( 10 )

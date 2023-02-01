@@ -10,7 +10,7 @@ func _ready():
 		"hitstop": $Hitstop,#old stagger
 		#"attack": $Attack,
 		"hitstunGr":$HitstunGr,
-		#"hitstunA":$HitstunA,
+		"hitstunA":$HitstunA,
 		"blowback":$Blowback,
 		"wallbounce":$Wallbounce
 		

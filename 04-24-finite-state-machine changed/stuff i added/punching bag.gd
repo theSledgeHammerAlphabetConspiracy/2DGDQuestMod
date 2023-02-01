@@ -14,6 +14,7 @@ onready var attack_KB_dir : Vector2 = Vector2($BodyPivot.get_scale().x,0)
 onready var attack_KB_amount: float = 200
 onready var attack_KB_type: int = 0
 onready var attack_DMG_amount: int = 0
+
 func _ready():
 	add_to_group("player"+player_team)
 	#print(get_tree().get_nodes_in_group('player1'))

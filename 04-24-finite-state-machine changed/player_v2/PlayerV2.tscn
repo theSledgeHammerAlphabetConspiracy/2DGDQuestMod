@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://player_v2/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player_v2/player_state_machine.gd" type="Script" id=2]
@@ -35,6 +35,8 @@
 [ext_resource path="res://player/states/combat/String2.gd" type="Script" id=33]
 [ext_resource path="res://player/states/combat/String3.gd" type="Script" id=34]
 [ext_resource path="res://player/states/combat/Special.gd" type="Script" id=35]
+[ext_resource path="res://player/states/combat/Blowback.gd" type="Script" id=36]
+[ext_resource path="res://player/states/combat/WallBounce.gd" type="Script" id=37]
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -302,6 +304,57 @@ tracks/21/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("StateMachine/WallBounce:vertical_speed")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("StateMachine/WallBounce:GRAVITY")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1600.0 ]
+}
+
+[sub_resource type="Animation" id=84]
+resource_name = "blowback"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodyPivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hitstunA" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BodyPivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -1110,6 +1163,71 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
+[sub_resource type="Animation" id=85]
+resource_name = "wallbounce"
+length = 1.5
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:knockback_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 200.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StateMachine/WallBounce:vertical_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 10.0, 0.0, 0.0, 120.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StateMachine/WallBounce:GRAVITY")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1600.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BodyPivot/AnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "knockdown" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BodyPivot/AnimatedSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 21 )
@@ -1565,8 +1683,15 @@ script = ExtResource( 35 )
 chargeable = true
 advance = true
 
+[node name="Blowback" type="Node" parent="StateMachine"]
+script = ExtResource( 36 )
+
+[node name="WallBounce" type="Node" parent="StateMachine"]
+script = ExtResource( 37 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 5 )
+anims/blowback = SubResource( 84 )
 anims/hitstop = SubResource( 2 )
 anims/hitstunA = SubResource( 7 )
 anims/hitstunGr = SubResource( 6 )
@@ -1580,6 +1705,7 @@ anims/overhead = SubResource( 54 )
 anims/shovel = SubResource( 55 )
 anims/upper = SubResource( 56 )
 anims/walk = SubResource( 3 )
+anims/wallbounce = SubResource( 85 )
 
 [node name="Shadow" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.361098 )

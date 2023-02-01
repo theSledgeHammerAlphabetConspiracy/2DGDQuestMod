@@ -41,8 +41,9 @@ func _on_animation_finished(anim_name):
 	elif stun_type == 1:
 		get_parent().get_node('HitstunA').initialize(owner.knockback_amount, owner.knockback_direction, owner.get_node("BodyPivot").position.y)
 		emit_signal("finished", "hitstunA")
-	elif stun_type == 6:#this should become blowback
-		emit_signal("finished", "hitstunA")
+	elif stun_type == 6:
+		emit_signal("finished", "blowback")
+		
 func exit():
 	pass
 	#print(owner.get_node("BodyPivot").position.y)
