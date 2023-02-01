@@ -12,6 +12,7 @@ func _ready():
 		"hitstunGr":$HitstunGr,
 		#"hitstunA":$HitstunA,
 		"blowback":$Blowback,
+		"wallbounce":$Wallbounce
 		
 		#"knockdown":$Knockdown,
 		

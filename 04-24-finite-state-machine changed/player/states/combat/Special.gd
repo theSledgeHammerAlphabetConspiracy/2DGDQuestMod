@@ -17,6 +17,11 @@ func enter():
 	#speed = 0.0
 	locked_speed = 0
 	advance = false
+	
+	owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
+	owner.attack_KB_amount = 2000
+	owner.attack_KB_type = 6#blowback
+	
 	#velocity = Vector2()
 	chargespeed=0.0
 	#var input_direction = get_input_direction()
