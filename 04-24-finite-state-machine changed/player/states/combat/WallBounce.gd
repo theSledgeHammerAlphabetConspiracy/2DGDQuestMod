@@ -1,9 +1,6 @@
 extends "../motion/motion.gd"
 
 
-
-
-
 export(float) var BASE_MAX_HORIZONTAL_SPEED = 400.0
 
 export(float) var AIR_ACCELERATION = 1000.0
