@@ -50,7 +50,7 @@ func update(delta):
 		
 func move_horizontally(amount, direction):
 
-	owner.move_and_slide(direction*amount)
+	owner.move_and_slide((Vector2(1,.5)*direction)*amount)
 
 func animate_jump_height(delta):
 	vertical_speed -= GRAVITY * delta

@@ -80,7 +80,8 @@ func update(delta):
 			return
 
 func move(speed, direction):
-	velocity = direction.normalized() * speed
+	#velocity = direction.normalized() * speed
+	velocity = (direction.normalized()*Vector2(1,.5)) * speed
 	owner.move_and_slide(velocity, Vector2(), 5, 2)
 	if owner.get_slide_count() == 0:
 		return

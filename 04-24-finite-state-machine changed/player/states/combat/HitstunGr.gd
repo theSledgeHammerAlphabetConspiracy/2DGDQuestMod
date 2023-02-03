@@ -32,7 +32,8 @@ func update(delta):
 		#return null
 
 func move(speed, direction):
-	velocity = direction.normalized() * speed
+	#velocity = direction.normalized() * speed
+	velocity = (direction.normalized()*Vector2(1,.5)) * speed
 	#print(owner.knockback_amount)
 	#trying this in the animation player in the capture type
 	#owner.knockback_amount = owner.knockback_amount *.95# -= 10# owner.knockback_amount *.1

@@ -79,7 +79,7 @@ func move_horizontally(amount, direction):
 	#var target_velocity = horizontal_speed * direction.normalized()
 	#var steering_velocity = (target_velocity - horizontal_velocity).normalized() * AIR_STEERING_POWER
 	#horizontal_velocity += steering_velocity
-
+	direction = direction * Vector2(1,.5)
 	owner.move_and_slide(direction*amount)
 
 func animate_jump_height(delta):
