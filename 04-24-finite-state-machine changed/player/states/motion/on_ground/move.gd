@@ -21,16 +21,17 @@ func update(delta):
 	if not input_direction:
 		emit_signal("finished", "idle")
 	update_look_direction(input_direction)#in motion
-
+	
 	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
 	var collision_info = move(speed, input_direction)
 	if not collision_info:
 		return
 	if speed == MAX_RUN_SPEED and collision_info.collider.is_in_group("environment"):
 		return null
-
+	
+	
 func move(speed, direction):
-	velocity = direction.normalized() * speed
+	velocity = (direction.normalized()*Vector2(1,.5)) * speed
 	owner.move_and_slide(velocity, Vector2(), 5, 2)
 	if owner.get_slide_count() == 0:
 		return

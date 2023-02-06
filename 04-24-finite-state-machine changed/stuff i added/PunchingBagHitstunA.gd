@@ -51,7 +51,7 @@ func update(delta):
 		emit_signal("finished", "idle")
 		
 func move_horizontally(amount, direction):
-
+	direction = direction * Vector2(1,.5)
 	owner.move_and_slide(direction*amount)
 
 func animate_jump_height(delta):

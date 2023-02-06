@@ -1,9 +1,6 @@
 extends "../motion/motion.gd"
 
 
-
-
-
 export(float) var BASE_MAX_HORIZONTAL_SPEED = 400.0
 
 export(float) var AIR_ACCELERATION = 1000.0
@@ -53,7 +50,7 @@ func update(delta):
 		
 func move_horizontally(amount, direction):
 
-	owner.move_and_slide(direction*amount)
+	owner.move_and_slide((Vector2(1,.5)*direction)*amount)
 
 func animate_jump_height(delta):
 	vertical_speed -= GRAVITY * delta
