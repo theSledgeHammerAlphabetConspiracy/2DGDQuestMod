@@ -21,6 +21,10 @@ var horizontal_velocity = Vector2()
 var vertical_speed = 0.0
 var height = 0.0
 
+
+
+var input_direction 
+
 func _init():
 	cancelable = true
 	physics_type = 1#air physics for gethit
@@ -31,12 +35,14 @@ func initialize(speed, velocity):#this is called in the state machine and that i
 	max_horizontal_speed = speed if speed > 0.0 else BASE_MAX_HORIZONTAL_SPEED
 	
 	enter_velocity = velocity
+	#print(horizontal_speed, enter_velocity)
+	
 	#print(velocity) #450
 	#enter_velocity = 
 	
 func enter():
 	#as of now im not using the initalize function above
-	var input_direction = get_input_direction()
+	input_direction = get_input_direction()
 	update_look_direction(input_direction)
 	enter_velocity = 450*input_direction.normalized()
 	horizontal_velocity = enter_velocity if input_direction else Vector2()
@@ -47,14 +53,18 @@ func enter():
 	owner.get_node("AnimationPlayer").play("jump")
 
 func update(delta):
-	var input_direction = get_input_direction()
-	update_look_direction(input_direction)
+	#u cant change direction mid jump
+	#input_direction = get_input_direction()
+	#update_look_direction(input_direction)
 
 	move_horizontally(delta, input_direction)
 	animate_jump_height(delta)
 	if height <= 0.0:
 		emit_signal("finished", "jumpland")
 		#emit_signal("finished", "previous")
+	if Input.is_action_just_pressed("stringA"+owner.player_team):
+		emit_signal("finished", "airattack")
+	
 
 func move_horizontally(delta, direction):
 	if direction:

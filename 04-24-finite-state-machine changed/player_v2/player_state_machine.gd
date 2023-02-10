@@ -19,7 +19,9 @@ func _ready():
 		"string1":$String1,
 		"string2":$String2,
 		"string3":$String3,
-		"special":$Special
+		"special":$Special,
+		
+		"airattack":$AirAttack
 	}
 
 func _change_state(state_name):
@@ -30,9 +32,12 @@ func _change_state(state_name):
 		return
 	if state_name in ["hitstop", "jump", "attack"]:
 		states_stack.push_front(states_map[state_name])
-	if state_name == "jump" and current_state == $Move:
+	if state_name == "jump" and current_state == $Move:#as of feb 10th this is not being called
 		#print($Move.velocity)
 		$Jump.initialize($Move.speed, $Move.velocity)
+	if state_name == "airattack" and current_state == $Jump:
+		#initialize(owner.knockback_amount, owner.knockback_direction, owner.get_node("BodyPivot").position.y)
+		$AirAttack.initialize($Jump.horizontal_velocity, $Jump.input_direction, owner.get_node("BodyPivot").position.y)
 	#if state_name == "hitstunA" and current_state == $Jump:
 		#$HitstunA.initialize(owner.knockback_amount, owner.knockback_direction, owner.get_node("BodyPivot").position.y)
 	._change_state(state_name)

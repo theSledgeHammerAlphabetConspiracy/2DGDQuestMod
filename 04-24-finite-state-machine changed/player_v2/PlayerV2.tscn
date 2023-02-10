@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://player_v2/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player_v2/player_state_machine.gd" type="Script" id=2]
@@ -37,6 +37,8 @@
 [ext_resource path="res://player/states/combat/Special.gd" type="Script" id=35]
 [ext_resource path="res://player/states/combat/Blowback.gd" type="Script" id=36]
 [ext_resource path="res://player/states/combat/WallBounce.gd" type="Script" id=37]
+[ext_resource path="res://assets/machosprites/airattack.png" type="Texture" id=38]
+[ext_resource path="res://player/states/combat/airattack.gd" type="Script" id=39]
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -328,6 +330,85 @@ tracks/23/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 1600.0 ]
+}
+
+[sub_resource type="Animation" id=86]
+resource_name = "airattack"
+length = 0.333334
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodyPivot/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "airattack" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BodyPivot/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.233333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 1, 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("StateMachine/String2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "cancel_check"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("StateMachine/String2:stringadd")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 20, 25 ) ]
 }
 
 [sub_resource type="Animation" id=84]
@@ -1228,6 +1309,26 @@ tracks/4/keys = {
 "values": [ 3 ]
 }
 
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 0, 0, 180, 190 )
+
+[sub_resource type="AtlasTexture" id=88]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 180, 0, 180, 190 )
+
+[sub_resource type="AtlasTexture" id=89]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 360, 0, 180, 190 )
+
+[sub_resource type="AtlasTexture" id=90]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 540, 0, 180, 190 )
+
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 21 )
@@ -1560,6 +1661,11 @@ region = Rect2( 1260, 0, 180, 190 )
 
 [sub_resource type="SpriteFrames" id=38]
 animations = [ {
+"frames": [ SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ) ],
+"loop": true,
+"name": "airattack",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 9 ) ],
 "loop": true,
 "name": "hitstunA",
@@ -1688,8 +1794,12 @@ script = ExtResource( 36 )
 [node name="WallBounce" type="Node" parent="StateMachine"]
 script = ExtResource( 37 )
 
+[node name="AirAttack" type="Node" parent="StateMachine"]
+script = ExtResource( 39 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 5 )
+anims/airattack = SubResource( 86 )
 anims/blowback = SubResource( 84 )
 anims/hitstop = SubResource( 2 )
 anims/hitstunA = SubResource( 7 )

@@ -6,7 +6,7 @@ func handle_input(event):
 	if event.is_action_pressed("simulate_damage"+owner.player_team):
 		#change the hitstop stun_type here
 		#this is suppose to be in the get hit state and set in the VBox
-		owner.take_damage(self, 10,Vector2(-owner.get_node("BodyPivot").get_scale().x,0))
+		owner.take_damage(self, 10,Vector2(-owner.get_node("BodyPivot").get_scale().x,0),200)
 	elif event.is_action_pressed("C"+owner.player_team):
 		#change the hitstop stun_type here
 		#this is suppose to be in the get hit state and set in the VBox

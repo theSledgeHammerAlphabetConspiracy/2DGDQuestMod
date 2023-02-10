@@ -31,7 +31,13 @@ func _init():
 	cancelable = true
 	physics_type = 1#air physics for gethit
 
+
+
+#####as of feb this is being called in the hitstop 
 func initialize(speed, velocity, pos):#this is called in the state machine and that is wrong it probably should be called on 
+	
+	
+	
 	#exiting the jump start animation/state
 	#print(owner.get_node("BodyPivot").position.y)
 	#horizontal_speed = speed
