@@ -260,7 +260,7 @@ tracks/17/keys = {
 "values": [ true ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
+tracks/18/path = NodePath("APivot/ABox/CollisionShape2D:disabled")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -272,7 +272,7 @@ tracks/18/keys = {
 "values": [ true ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
+tracks/19/path = NodePath("APivot/ABox/CollisionShape2D:shape:extents")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -387,7 +387,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("APivot/ABox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -399,7 +399,7 @@ tracks/4/keys = {
 "values": [ true, false, true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
+tracks/5/path = NodePath("APivot/ABox/CollisionShape2D:shape:extents")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -887,7 +887,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("APivot/ABox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -899,7 +899,7 @@ tracks/4/keys = {
 "values": [ true, false, true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
+tracks/5/path = NodePath("APivot/ABox/CollisionShape2D:shape:extents")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -976,7 +976,7 @@ tracks/4/keys = {
 "values": [ 300.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
+tracks/5/path = NodePath("APivot/ABox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -988,7 +988,7 @@ tracks/5/keys = {
 "values": [ true, false, true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
+tracks/6/path = NodePath("APivot/ABox/CollisionShape2D:shape:extents")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1065,7 +1065,7 @@ tracks/4/keys = {
 "values": [ false, false, true, false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
+tracks/5/path = NodePath("APivot/ABox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1077,7 +1077,7 @@ tracks/5/keys = {
 "values": [ true, false, true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
+tracks/6/path = NodePath("APivot/ABox/CollisionShape2D:shape:extents")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1180,7 +1180,7 @@ tracks/6/keys = {
 "values": [ false, true, false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("BodyPivot/ABox/CollisionShape2D:disabled")
+tracks/7/path = NodePath("APivot/ABox/CollisionShape2D:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1192,7 +1192,7 @@ tracks/7/keys = {
 "values": [ true, false, true ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("BodyPivot/ABox/CollisionShape2D:shape:extents")
+tracks/8/path = NodePath("APivot/ABox/CollisionShape2D:shape:extents")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1717,13 +1717,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=83]
-extents = Vector2( 25, 25 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 20
 use_filter = true
 font_data = ExtResource( 15 )
+
+[sub_resource type="RectangleShape2D" id=83]
+extents = Vector2( 25, 25 )
 
 [node name="PlayerV2" type="KinematicBody2D"]
 position = Vector2( 628.826, 391.266 )
@@ -1833,16 +1833,6 @@ position = Vector2( -5, -28 )
 frames = SubResource( 38 )
 animation = "idle"
 
-[node name="ABox" type="Area2D" parent="BodyPivot"]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyPivot/ABox"]
-position = Vector2( 55.174, -7.26599 )
-shape = SubResource( 83 )
-disabled = true
-
 [node name="WeaponPivot" type="Position2D" parent="."]
 visible = false
 position = Vector2( 0, -61.266 )
@@ -1881,8 +1871,20 @@ script = ExtResource( 16 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="APivot" type="Position2D" parent="."]
+
+[node name="ABox" type="Area2D" parent="APivot"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="APivot/ABox"]
+position = Vector2( 55.174, -7.26599 )
+shape = SubResource( 83 )
+disabled = true
+
 [connection signal="state_changed" from="StateMachine" to="WeaponPivot/Offset/Sword" method="_on_StateMachine_state_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
-[connection signal="area_entered" from="BodyPivot/ABox" to="." method="_on_ABox_area_entered"]
 [connection signal="attack_finished" from="WeaponPivot/Offset/Sword" to="StateMachine/Attack" method="_on_Sword_attack_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="APivot/ABox" to="." method="_on_ABox_area_entered"]
