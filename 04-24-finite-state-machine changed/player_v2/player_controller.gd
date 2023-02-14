@@ -15,7 +15,13 @@ onready var attack_KB_amount: float = 200
 onready var attack_KB_type: int = 0
 onready var attack_DMG_amount: int = 0
 
+onready var grab_landed: bool = false
+onready var grabbed_by: bool = false
+
 var string_series: int = 0
+
+var control
+var grabvictim 
 
 func _ready():
 	add_to_group("player"+player_team)
@@ -43,11 +49,30 @@ func set_look_direction(value):
 	emit_signal("direction_changed", value)
 	
 func _on_ABox_area_entered(area):
-	#print('hit')
-	$AnimationPlayer.stop(false)
-	$Timer.start()
-	area.owner.take_damage(self, attack_DMG_amount, attack_KB_dir, attack_KB_amount, attack_KB_type)
+	if attack_KB_type != 8:
+		$AnimationPlayer.stop(false)
+		$Timer.start()
+		area.owner.take_damage(self, attack_DMG_amount, attack_KB_dir, attack_KB_amount, attack_KB_type)
 	
 func _on_Timer_timeout():
 	#print("hitstop over")
 	$AnimationPlayer.play()
+	
+func _on_GBox_area_entered(area):
+	if grab_landed == false:
+		#area.owner
+		#area.owner.get_node('CollisionShape2D').disabled = true
+		grabvictim = area.owner
+		area.owner.grabbedPos = $GrabAnimator
+		area.owner.control = $GPivot/GBox
+		area.owner.get_node("StateMachine")._change_state("grabbed")
+		$StateMachine._change_state('grabbing')
+		grab_landed = true
+		
+func _throw_dmg():
+	grabvictim.grabbedPos = null
+	grabvictim.take_damage(self, 10, Vector2(get_node("BodyPivot").get_scale().x,0), 2000, 6)
+	
+	grabvictim= null
+	
+	

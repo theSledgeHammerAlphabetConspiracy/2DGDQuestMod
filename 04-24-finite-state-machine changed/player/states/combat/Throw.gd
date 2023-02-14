@@ -23,14 +23,10 @@ func enter():
 	owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
 	owner.attack_KB_amount = 2000
 	owner.attack_KB_type = 6#blowback
-	
-	#this allows for the second attack in the string to attack behind the player.. this might be bad
-	#var input_direction = get_input_direction()
-	#update_look_direction(input_direction)
 	locked_direction = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
 	#update_look_direction(input_direction)
 	update_look_direction(locked_direction)
-	owner.get_node("AnimationPlayer").play("overhead")
+	owner.get_node("AnimationPlayer").play("throw")
 
 func handle_input(event):
 	if event.is_action_pressed("special"+owner.player_team):
@@ -39,13 +35,13 @@ func handle_input(event):
 #
 func update(delta):
 	#this is the basic low kick isnt charageable
-	if Input.is_action_pressed("stringA"+owner.player_team) and chargeable == true:
-		owner.get_node("AnimationPlayer").stop(false)
-		chargespeed +=10.0
-	else:
-		if chargespeed >= 600:
-			chargespeed = 600
-		owner.get_node("AnimationPlayer").play()
+#	if Input.is_action_pressed("stringA"+owner.player_team) and chargeable == true:
+#		owner.get_node("AnimationPlayer").stop(false)
+#		chargespeed +=10.0
+#	else:
+#		if chargespeed >= 600:
+#			chargespeed = 600
+#		owner.get_node("AnimationPlayer").play()
 		
 	#end of string
 #	if stringadd == true and Input.is_action_just_pressed("stringA"+owner.player_team):
@@ -87,16 +83,6 @@ func move(speed, direction):
 	if owner.get_slide_count() == 0:
 		return
 	return owner.get_slide_collision(0)
-
-
-#no cancel check until specials
-#func cancel_check():
-##	if series != 1:
-##		pass
-##	el
-#	if series >= 1:
-#		emit_signal("finished", "string3")
-#
 
 func _on_animation_finished(anim_name):
 	emit_signal("finished", "idle")

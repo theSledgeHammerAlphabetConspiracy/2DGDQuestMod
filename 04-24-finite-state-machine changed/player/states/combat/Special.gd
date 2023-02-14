@@ -12,9 +12,7 @@ export var locked_speed:float=0.0
 var chargespeed:float=0.0
 
 func enter():
-	#print(owner.get_node("BodyPivot").get_scale())
-	#play move
-	#speed = 0.0
+	chargeable = false
 	locked_speed = 0
 	advance = false
 	
@@ -39,11 +37,11 @@ func update(delta):
 	#this is the basic
 	if Input.is_action_pressed("special"+owner.player_team) and chargeable == true:
 		owner.get_node("AnimationPlayer").stop(false)
-		chargespeed += 100.0
+		chargespeed += 500.0
 	else:
 		#print(owner.get_node("AnimationPlayer").get_current_animation_position())
-		if chargespeed >= 1800:
-			chargespeed = 1800
+		if chargespeed >= 5000:
+			chargespeed = 5000
 		owner.get_node("AnimationPlayer").play()
 		
 	#this is not good

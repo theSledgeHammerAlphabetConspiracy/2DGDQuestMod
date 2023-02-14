@@ -12,7 +12,9 @@ func _ready():
 		"hitstunGr":$HitstunGr,
 		"hitstunA":$HitstunA,
 		"blowback":$Blowback,
-		"wallbounce":$Wallbounce
+		"wallbounce":$Wallbounce,
+		
+		"grabbed":$Grabbed
 		
 		#"knockdown":$Knockdown,
 		
@@ -21,6 +23,8 @@ func _ready():
 		#"string3":$String3,
 		#"special":$Special
 	}
+	
+var control
 
 func _change_state(state_name):
 	"""

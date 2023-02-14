@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="GDQUEST modified in github folder"
+config/name="2Dbeatem up modified in github folder"
 run/main_scene="res://Demo.tscn"
 config/icon="res://icon.png"
 
@@ -152,6 +152,11 @@ C1={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":67,"unicode":0,"echo":false,"script":null)
  ]
 }
+G1={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":71,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [input_devices]
 
@@ -162,6 +167,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_1="kinematic"
 2d_physics/layer_2="attacks"
 2d_physics/layer_3="blowbackonly"
+2d_physics/layer_4="grabs"
 
 [rendering]
 

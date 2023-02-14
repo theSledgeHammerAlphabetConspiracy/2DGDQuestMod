@@ -9,8 +9,11 @@ func handle_input(event):
 	if event.is_action_pressed("jump"+owner.player_team):
 		#emit_signal("finished", "jump")
 		emit_signal("finished", "jumpstart")
+		#IF THE ATTACK INSIDE THE GRAB FAILS THIS NEEDS A MOD
 	if event.is_action_pressed("stringA"+owner.player_team):
 		emit_signal("finished","string1")
+	if event.is_action_pressed("G"+owner.player_team):
+		emit_signal("finished","grab")
 	if event.is_action_pressed("special"+owner.player_team):
 		emit_signal("finished","special")
 	return .handle_input(event)

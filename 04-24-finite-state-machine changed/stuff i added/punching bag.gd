@@ -15,9 +15,19 @@ onready var attack_KB_amount: float = 200
 onready var attack_KB_type: int = 0
 onready var attack_DMG_amount: int = 0
 
+var control
+var grabbedPos
+
 func _ready():
 	add_to_group("player"+player_team)
 	#print(get_tree().get_nodes_in_group('player1'))
+
+func _physics_process(delta):
+	if grabbedPos != null:
+		$BodyPivot/pbsprite.set_global_position(grabbedPos.get_global_position())
+	else:
+		if $BodyPivot/pbsprite.get_position() != Vector2(0,0):
+			$BodyPivot/pbsprite.set_position(Vector2(0,0))
 
 func take_damage(attacker, damage, kb_D, kb_A= 1200, type=0, effect=null):
 	if attacker.is_in_group("player"+player_team):
