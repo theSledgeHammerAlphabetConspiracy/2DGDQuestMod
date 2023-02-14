@@ -20,6 +20,9 @@ onready var grabbed_by: bool = false
 
 var string_series: int = 0
 
+#2/14 changed from being controlled on the state variable
+var height: float = 0.0
+
 var control
 var grabvictim 
 
@@ -75,4 +78,10 @@ func _throw_dmg():
 	
 	grabvictim= null
 	
-	
+func animate_jump_height(delta,vertical_speed):
+	#print(height)
+	#vertical_speed -= GRAVITY * delta
+	height += vertical_speed * delta
+	height = max(0.0,height)
+
+	get_node("BodyPivot").position.y = -height
