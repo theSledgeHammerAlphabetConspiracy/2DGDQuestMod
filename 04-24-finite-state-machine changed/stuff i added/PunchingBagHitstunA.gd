@@ -44,9 +44,12 @@ func enter():
 	
 func update(delta):
 	var collision_info = move_horizontally(owner.knockback_amount, owner.knockback_direction)
-
-	animate_jump_height(delta)
-	if height <= 0.0:
+	
+	vertical_speed -= GRAVITY * delta
+	owner.animate_jump_height(delta,vertical_speed)
+	#changed in feb to being on the body
+	#animate_jump_height(delta)
+	if owner.height <= 0.0:
 		##################################################this needs to go to the knockdown state
 		emit_signal("finished", "idle")
 		
@@ -54,12 +57,12 @@ func move_horizontally(amount, direction):
 	direction = direction * Vector2(1,.5)
 	owner.move_and_slide(direction*amount)
 
-func animate_jump_height(delta):
-	vertical_speed -= GRAVITY * delta
-	height += vertical_speed * delta
-	height = max(0.0,height)
-
-	owner.get_node("BodyPivot").position.y = -height
+#func animate_jump_height(delta):
+#	vertical_speed -= GRAVITY * delta
+#	height += vertical_speed * delta
+#	height = max(0.0,height)
+#
+#	owner.get_node("BodyPivot").position.y = -height
 
 #see hitstop
 func _on_animation_finished(anim_name):

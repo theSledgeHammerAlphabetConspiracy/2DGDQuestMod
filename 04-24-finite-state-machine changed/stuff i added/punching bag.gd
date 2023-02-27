@@ -50,3 +50,11 @@ func set_dead(value):
 func set_look_direction(value):
 	look_direction = value
 	emit_signal("direction_changed", value)
+
+func animate_jump_height(delta,vertical_speed):
+	#print(height)
+	#vertical_speed -= GRAVITY * delta
+	height += vertical_speed * delta
+	height = max(0.0,height)
+
+	get_node("BodyPivot").position.y = -height

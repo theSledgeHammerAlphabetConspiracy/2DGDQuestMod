@@ -43,8 +43,11 @@ func enter():
 	
 func update(delta):
 	var collision_info = move_horizontally(owner.knockback_amount, owner.knockback_direction)
-	animate_jump_height(delta)
-	if height <= 0.0:
+	
+	vertical_speed -= GRAVITY * delta
+	#animate_jump_height(delta)
+	owner.animate_jump_height(delta,vertical_speed)
+	if owner.height <= 0.0:
 		##################################################this needs to go to the knockdown state
 		emit_signal("finished", "knockdown")
 		
