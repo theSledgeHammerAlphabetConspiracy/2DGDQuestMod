@@ -66,7 +66,8 @@ func _on_GBox_area_entered(area):
 		#area.owner
 		#area.owner.get_node('CollisionShape2D').disabled = true
 		grabvictim = area.owner
-		area.owner.grabbedPos = $GrabAnimator
+		area.owner.height = 0.0
+		area.owner.grabbedPos = $GPivot/GrabAnimator
 		area.owner.control = $GPivot/GBox
 		area.owner.get_node("StateMachine")._change_state("grabbed")
 		$StateMachine._change_state('grabbing')

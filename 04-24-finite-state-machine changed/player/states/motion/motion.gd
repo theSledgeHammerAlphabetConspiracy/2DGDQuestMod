@@ -30,3 +30,5 @@ func update_look_direction(direction):
 	owner.get_node("BodyPivot").set_scale(Vector2(direction.x, 1))
 	owner.get_node("APivot").set_scale(Vector2(direction.x, 1))
 	owner.get_node("GPivot").set_scale(Vector2(direction.x, 1))
+	owner.get_node("GrabAnimator").set_scale(Vector2(direction.x, 1))
+	

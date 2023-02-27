@@ -360,6 +360,18 @@ tracks/25/keys = {
 "update": 0,
 "values": [ Vector2( 55.174, -7.26599 ) ]
 }
+tracks/26/type = "value"
+tracks/26/path = NodePath("GPivot/GrabAnimator:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 55.174, -7.26599 ) ]
+}
 
 [sub_resource type="Animation" id=86]
 resource_name = "airattack"
@@ -614,16 +626,16 @@ tracks/5/keys = {
 "values": [ Vector2( 20, 25 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("GrabAnimator:position")
+tracks/6/path = NodePath("GPivot/GrabAnimator:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.323, 0.616668 ),
+"times": PoolRealArray( 0, 0.323, 0.612 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 55.174, -7.26599 ), Vector2( 56.174, 14.734 ), Vector2( 56.174, -37.266 ) ]
+"values": [ Vector2( 55.174, -7.26599 ), Vector2( 55.174, 14.734 ), Vector2( 55.174, -37.266 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -1303,31 +1315,31 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 1, 0, 2, 3, 4 ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("GrabAnimator:position")
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -0.825989, -41.266 ), Vector2( -70.826, -31.266 ), Vector2( -72.826, -83.266 ), Vector2( 56.174, -62.266 ) ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "_throw_dmg"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GPivot/GrabAnimator:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -0.826, -41.266 ), Vector2( -70.826, -31.266 ), Vector2( -72.826, -83.266 ), Vector2( 56.174, -62.266 ) ]
 }
 
 [sub_resource type="Animation" id=56]
@@ -2192,6 +2204,9 @@ monitorable = false
 [node name="GrabBoxCollision" type="CollisionShape2D" parent="GPivot/GBox"]
 shape = SubResource( 83 )
 disabled = true
+
+[node name="GrabAnimator" type="Position2D" parent="GPivot"]
+position = Vector2( 55.174, -7.26599 )
 
 [node name="GrabAnimator" type="Position2D" parent="."]
 position = Vector2( 55.174, -7.26599 )

@@ -18,6 +18,8 @@ onready var attack_DMG_amount: int = 0
 var control
 var grabbedPos
 
+var height: float = 0.0
+
 func _ready():
 	add_to_group("player"+player_team)
 	#print(get_tree().get_nodes_in_group('player1'))
