@@ -39,6 +39,12 @@ func initialize(speed, dir, pos):#this is called in the state machine and that i
 	#print(h_speed, h_dir)
 
 func enter():
+	
+	owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
+	owner.attack_KB_amount = 200
+	owner.attack_KB_type = 0
+	owner.string_series = 0
+	
 	vertical_speed = 200.0
 	owner.get_node("AnimationPlayer").play("airattack")
 	#print(height)

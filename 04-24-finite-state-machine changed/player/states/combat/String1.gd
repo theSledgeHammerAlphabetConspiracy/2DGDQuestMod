@@ -16,11 +16,12 @@ func enter():
 	#print(owner.get_node("BodyPivot").get_scale())
 	#play move
 	#speed = 0.0
+	#basic enter attack state should probably be a function
 	owner.attack_KB_dir = Vector2(owner.get_node("BodyPivot").get_scale().x,0)
 	owner.attack_KB_amount = 200
 	owner.attack_KB_type = 0
-	
 	owner.string_series = 0
+	
 	locked_speed = 0
 	velocity = Vector2()
 	chargespeed=0.0
